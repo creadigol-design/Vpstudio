@@ -1,0 +1,530 @@
+// Virtual Studio platform data model (spec §27).
+// Every tenant-owned record carries organisationId (and workspaceId where
+// applicable); backend services must enforce tenant access (spec §27.3).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Identity and tenancy
+// ---------------------------------------------------------------------------
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  displayName  String
+  passwordHash String?
+  locale       String       @default("en")
+  mfaEnabled   Boolean      @default(false)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  memberships  Membership[]
+  comments     Comment[]
+  approvals    ApprovalDecision[]
+  auditEvents  AuditEvent[]
+}
+
+model Organisation {
+  id            String         @id @default(cuid())
+  name          String
+  slug          String         @unique
+  status        String         @default("ACTIVE") // ACTIVE | SUSPENDED
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  workspaces    Workspace[]
+  memberships   Membership[]
+  subscription  Subscription?
+  usageRecords  UsageRecord[]
+  auditEvents   AuditEvent[]
+  studioDevices StudioDevice[]
+}
+
+model Workspace {
+  id             String       @id @default(cuid())
+  organisationId String
+  organisation   Organisation @relation(fields: [organisationId], references: [id])
+  name           String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  brandKits      BrandKit[]
+  templates      ProgrammeTemplate[]
+  projects       Project[]
+  studioDevices  StudioDevice[]
+
+  @@index([organisationId])
+}
+
+model Membership {
+  id             String       @id @default(cuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id])
+  organisationId String
+  organisation   Organisation @relation(fields: [organisationId], references: [id])
+  role           String // PLATFORM_ADMIN | PRODUCTION_ADMIN | ORG_ADMIN | CREATOR | PRESENTER | REVIEWER | GUEST
+  createdAt      DateTime     @default(now())
+
+  @@unique([userId, organisationId])
+  @@index([organisationId])
+}
+
+// ---------------------------------------------------------------------------
+// Brand and templates
+// ---------------------------------------------------------------------------
+
+model BrandKit {
+  id             String    @id @default(cuid())
+  organisationId String
+  workspaceId    String
+  workspace      Workspace @relation(fields: [workspaceId], references: [id])
+  name           String
+  version        Int       @default(1)
+  // Brand attributes with lock levels (spec §21.2), stored as structured JSON:
+  // { primaryLogoAssetId, colours: {...}, fonts: {...}, lockLevels: {...} }
+  definition     Json
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  projects       Project[]
+
+  @@index([organisationId, workspaceId])
+}
+
+model ProgrammeTemplate {
+  id             String            @id @default(cuid())
+  organisationId String?
+  workspaceId    String?
+  workspace      Workspace?        @relation(fields: [workspaceId], references: [id])
+  name           String
+  description    String?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  versions       TemplateVersion[]
+}
+
+model TemplateVersion {
+  id         String            @id @default(cuid())
+  templateId String
+  template   ProgrammeTemplate @relation(fields: [templateId], references: [id])
+  version    Int
+  // Running-order structure, layouts, rules, editable fields (spec §21.3)
+  definition Json
+  published  Boolean           @default(false)
+  createdAt  DateTime          @default(now())
+  projects   Project[]
+
+  @@unique([templateId, version])
+}
+
+// ---------------------------------------------------------------------------
+// Projects
+// ---------------------------------------------------------------------------
+
+model Project {
+  id                String            @id @default(cuid())
+  organisationId    String
+  workspaceId       String
+  workspace         Workspace         @relation(fields: [workspaceId], references: [id])
+  templateVersionId String
+  templateVersion   TemplateVersion   @relation(fields: [templateVersionId], references: [id])
+  brandKitId        String?
+  brandKit          BrandKit?         @relation(fields: [brandKitId], references: [id])
+  name              String
+  languageMode      String            @default("EN_ONLY") // EN_ONLY | CY_ONLY | SEPARATE | BILINGUAL
+  outputPresets     String[]
+  status            String            @default("DRAFT") // spec §11.1
+  createdById       String
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  runningOrderItems RunningOrderItem[]
+  scripts           Script[]
+  recordingSessions RecordingSession[]
+  mediaAssets       MediaAsset[]
+  versions          ProjectVersion[]
+  comments          Comment[]
+  exportJobs        ExportJob[]
+  auditEvents       AuditEvent[]
+
+  @@index([organisationId, workspaceId])
+  @@index([status])
+}
+
+model RunningOrderItem {
+  id              String   @id @default(cuid())
+  organisationId  String
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id])
+  type            String // opening | presenter | headline | image | video | quote | statistic | call_to_action | closing | credits
+  position        Int
+  required        Boolean  @default(false)
+  scriptSectionId String?
+  assetId         String?
+  settings        Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([projectId, position])
+  @@index([projectId])
+}
+
+model Script {
+  id             String          @id @default(cuid())
+  organisationId String
+  projectId      String
+  project        Project         @relation(fields: [projectId], references: [id])
+  language       String // en | cy — linked language versions, never overwritten (spec §13.2)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  versions       ScriptVersion[]
+
+  @@unique([projectId, language])
+}
+
+model ScriptVersion {
+  id        String   @id @default(cuid())
+  scriptId  String
+  script    Script   @relation(fields: [scriptId], references: [id])
+  version   Int
+  // Sections: [{ id, heading, body, presenterNotes, pronunciation, pauses, emphasis }]
+  sections  Json
+  createdBy String
+  createdAt DateTime @default(now())
+
+  @@unique([scriptId, version])
+}
+
+// ---------------------------------------------------------------------------
+// Recording
+// ---------------------------------------------------------------------------
+
+model RecordingSession {
+  id             String        @id @default(cuid())
+  organisationId String
+  projectId      String
+  project        Project       @relation(fields: [projectId], references: [id])
+  studioDeviceId String?
+  studioDevice   StudioDevice? @relation(fields: [studioDeviceId], references: [id])
+  status         String        @default("SCHEDULED") // SCHEDULED | ACTIVE | SUBMITTED | ABANDONED
+  startedAt      DateTime?
+  submittedAt    DateTime?
+  createdAt      DateTime      @default(now())
+  takes          Take[]
+
+  @@index([projectId])
+}
+
+model Take {
+  id                 String           @id @default(cuid())
+  organisationId     String
+  recordingSessionId String
+  recordingSession   RecordingSession @relation(fields: [recordingSessionId], references: [id])
+  sectionId          String
+  takeNumber         Int
+  status             String           @default("RECORDED") // RECORDED | ACCEPTED | REJECTED
+  preferred          Boolean          @default(false)
+  note               String?
+  startedAt          DateTime
+  stoppedAt          DateTime?
+  // Technical metadata from the capture agent (spec §8.6)
+  metadata           Json?
+  mediaAssets        MediaAsset[]
+  createdAt          DateTime         @default(now())
+
+  @@unique([recordingSessionId, sectionId, takeNumber])
+}
+
+model MediaAsset {
+  id             String         @id @default(cuid())
+  organisationId String
+  projectId      String?
+  project        Project?       @relation(fields: [projectId], references: [id])
+  takeId         String?
+  take           Take?          @relation(fields: [takeId], references: [id])
+  kind           String // CAMERA_MASTER | PRESENTER_AUDIO | BACKUP_AUDIO | PROXY | USER_ASSET | RENDER_OUTPUT | THUMBNAIL
+  storageKey     String         @unique
+  fileName       String
+  contentType    String
+  sizeBytes      BigInt?
+  checksum       String?
+  durationSeconds Float?
+  // ffprobe-derived technical metadata (spec §17)
+  technicalMetadata Json?
+  validationStatus  String       @default("PENDING") // PENDING | VALID | CORRUPT
+  createdAt      DateTime       @default(now())
+  uploadSessions UploadSession[]
+  transcripts    Transcript[]
+
+  @@index([organisationId, projectId])
+}
+
+model UploadSession {
+  id             String     @id @default(cuid())
+  organisationId String
+  mediaAssetId   String
+  mediaAsset     MediaAsset @relation(fields: [mediaAssetId], references: [id])
+  state          String     @default("PENDING") // spec §16.3
+  totalParts     Int?
+  completedParts Int        @default(0)
+  s3UploadId     String?
+  lastError      String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@index([mediaAssetId])
+}
+
+// ---------------------------------------------------------------------------
+// Transcription and captions
+// ---------------------------------------------------------------------------
+
+model Transcript {
+  id             String       @id @default(cuid())
+  organisationId String
+  mediaAssetId   String
+  mediaAsset     MediaAsset   @relation(fields: [mediaAssetId], references: [id])
+  language       String
+  // Word- and segment-level timestamps (spec §19.1)
+  content        Json
+  provider       String?
+  createdAt      DateTime     @default(now())
+  captionTracks  CaptionTrack[]
+}
+
+model CaptionTrack {
+  id             String     @id @default(cuid())
+  organisationId String
+  transcriptId   String
+  transcript     Transcript @relation(fields: [transcriptId], references: [id])
+  language       String
+  format         String // SRT | VTT
+  // Editable cues with safety-rule validation results (spec §19.4)
+  cues           Json
+  version        Int        @default(1)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// Versions, review, approval
+// ---------------------------------------------------------------------------
+
+model ProjectVersion {
+  id              String            @id @default(cuid())
+  organisationId  String
+  projectId       String
+  project         Project           @relation(fields: [projectId], references: [id])
+  versionNumber   Int
+  // Snapshot: script versions, selected takes, assets, captions, template +
+  // brand-kit + renderer versions, render manifest (spec §24.4)
+  snapshot        Json
+  renderManifest  Json?
+  createdAt       DateTime          @default(now())
+  renderJobs      RenderJob[]
+  qualityChecks   QualityCheck[]
+  approvalRequests ApprovalRequest[]
+  comments        Comment[]
+
+  @@unique([projectId, versionNumber])
+}
+
+model Comment {
+  id               String          @id @default(cuid())
+  organisationId   String
+  projectId        String
+  project          Project         @relation(fields: [projectId], references: [id])
+  projectVersionId String?
+  projectVersion   ProjectVersion? @relation(fields: [projectVersionId], references: [id])
+  authorId         String
+  author           User            @relation(fields: [authorId], references: [id])
+  body             String
+  timecodeMs       Int?
+  resolved         Boolean         @default(false)
+  assigneeId       String?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  @@index([projectId])
+}
+
+model ApprovalRequest {
+  id               String             @id @default(cuid())
+  organisationId   String
+  projectVersionId String
+  projectVersion   ProjectVersion     @relation(fields: [projectVersionId], references: [id])
+  // Rule: ONE_NAMED | ANY_OF_GROUP | ALL_REQUIRED (spec §24.3)
+  rule             String
+  requiredUserIds  String[]
+  status           String             @default("PENDING") // PENDING | APPROVED | REJECTED | CANCELLED
+  createdAt        DateTime           @default(now())
+  decisions        ApprovalDecision[]
+}
+
+model ApprovalDecision {
+  id                String          @id @default(cuid())
+  approvalRequestId String
+  approvalRequest   ApprovalRequest @relation(fields: [approvalRequestId], references: [id])
+  userId            String
+  user              User            @relation(fields: [userId], references: [id])
+  decision          String // APPROVE | REJECT | REQUEST_CHANGES
+  note              String?
+  createdAt         DateTime        @default(now())
+
+  @@unique([approvalRequestId, userId])
+}
+
+// ---------------------------------------------------------------------------
+// Rendering, export, QC
+// ---------------------------------------------------------------------------
+
+model RenderJob {
+  id               String         @id @default(cuid())
+  organisationId   String
+  projectVersionId String
+  projectVersion   ProjectVersion @relation(fields: [projectVersionId], references: [id])
+  type             String // TRANSCRIBE | AUDIO_PROCESS | COMPOSE | RENDER | PACKAGE
+  status           String         @default("QUEUED") // QUEUED | RUNNING | COMPLETE | FAILED | CANCELLED
+  progress         Int            @default(0)
+  attempt          Int            @default(1)
+  workerVersion    String?
+  logKey           String?
+  lastError        String?
+  startedAt        DateTime?
+  completedAt      DateTime?
+  createdAt        DateTime       @default(now())
+
+  @@index([projectVersionId, type])
+  @@index([status])
+}
+
+model QualityCheck {
+  id               String         @id @default(cuid())
+  organisationId   String
+  projectVersionId String
+  projectVersion   ProjectVersion @relation(fields: [projectVersionId], references: [id])
+  check            String
+  status           String // PASS | FAIL | SKIPPED
+  measured         String?
+  expected         String?
+  severity         String // INFO | WARNING | ERROR
+  evidence         String?
+  suggestedAction  String?
+  createdAt        DateTime       @default(now())
+
+  @@index([projectVersionId])
+}
+
+model ExportPreset {
+  id             String      @id @default(cuid())
+  organisationId String?
+  name           String
+  // Format definition: dimensions, captions on/off, container, audio target
+  definition     Json
+  createdAt      DateTime    @default(now())
+  exportJobs     ExportJob[]
+}
+
+model ExportJob {
+  id             String       @id @default(cuid())
+  organisationId String
+  projectId      String
+  project        Project      @relation(fields: [projectId], references: [id])
+  exportPresetId String
+  exportPreset   ExportPreset @relation(fields: [exportPresetId], references: [id])
+  status         String       @default("QUEUED") // QUEUED | RUNNING | COMPLETE | FAILED
+  outputKey      String?
+  expiresAt      DateTime?
+  createdAt      DateTime     @default(now())
+  completedAt    DateTime?
+
+  @@index([projectId])
+}
+
+// ---------------------------------------------------------------------------
+// Studio devices
+// ---------------------------------------------------------------------------
+
+model StudioDevice {
+  id               String            @id @default(cuid())
+  organisationId   String
+  organisation     Organisation      @relation(fields: [organisationId], references: [id])
+  workspaceId      String?
+  workspace        Workspace?        @relation(fields: [workspaceId], references: [id])
+  name             String // e.g. "Cardiff Office 01"
+  registrationKey  String            @unique
+  agentVersion     String?
+  osVersion        String?
+  status           String            @default("OFFLINE") // ONLINE | OFFLINE | MAINTENANCE | RECORDING_LOCKED
+  lastCheckInAt    DateTime?
+  freeStorageBytes BigInt?
+  uploadQueueDepth Int               @default(0)
+  warnings         Json?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  components       DeviceComponent[]
+  recordingSessions RecordingSession[]
+
+  @@index([organisationId])
+}
+
+model DeviceComponent {
+  id             String       @id @default(cuid())
+  studioDeviceId String
+  studioDevice   StudioDevice @relation(fields: [studioDeviceId], references: [id])
+  kind           String // CAMERA | PRIMARY_MIC | BACKUP_MIC | TELEPROMPTER | LIGHTS | STORAGE | NETWORK
+  identifier     String?
+  state          String       @default("UNKNOWN") // CONNECTED | DISCONNECTED | DEGRADED | UNKNOWN
+  detail         Json?
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([studioDeviceId, kind, identifier])
+}
+
+// ---------------------------------------------------------------------------
+// Billing, usage, audit
+// ---------------------------------------------------------------------------
+
+model Subscription {
+  id              String       @id @default(cuid())
+  organisationId  String       @unique
+  organisation    Organisation @relation(fields: [organisationId], references: [id])
+  plan            String
+  status          String       @default("ACTIVE") // ACTIVE | PAST_DUE | CANCELLED
+  // Limits: recordingMinutes, renderMinutes, storageGb, seats, devices (spec §32)
+  limits          Json
+  currentPeriodEnd DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+}
+
+model UsageRecord {
+  id             String       @id @default(cuid())
+  organisationId String
+  organisation   Organisation @relation(fields: [organisationId], references: [id])
+  metric         String // RECORDING_MINUTES | RENDER_MINUTES | STORAGE_BYTES | EXPORT_MINUTES | GUEST_MINUTES
+  quantity       Float
+  periodStart    DateTime
+  periodEnd      DateTime
+  createdAt      DateTime     @default(now())
+
+  @@index([organisationId, metric, periodStart])
+}
+
+model AuditEvent {
+  id             String        @id @default(cuid())
+  organisationId String?
+  organisation   Organisation? @relation(fields: [organisationId], references: [id])
+  projectId      String?
+  project        Project?      @relation(fields: [projectId], references: [id])
+  actorId        String?
+  actor          User?         @relation(fields: [actorId], references: [id])
+  action         String // e.g. project.status_changed, take.accepted, export.created
+  detail         Json?
+  createdAt      DateTime      @default(now())
+
+  @@index([organisationId, createdAt])
+  @@index([projectId, createdAt])
+}

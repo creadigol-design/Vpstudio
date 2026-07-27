@@ -56,6 +56,41 @@ Key characteristics:
 
 See [section 41 of the specification](docs/virtual-studio-platform-spec.md#41-delivery-phases) for detail.
 
-## Planned repository structure
+## Repository structure
 
-As the implementation begins, the repository will follow the monorepo layout defined in [section 47 of the specification](docs/virtual-studio-platform-spec.md#47-recommended-repository-structure): `/apps` (client web, admin web, capture agent), `/services` (API, media pipeline, render workers), `/packages` (shared libraries), `/infrastructure` and `/docs`.
+The monorepo follows the layout defined in [section 47 of the specification](docs/virtual-studio-platform-spec.md#47-recommended-repository-structure). Implemented so far:
+
+| Path | Status | Contents |
+|---|---|---|
+| `packages/contracts` | ✅ built | Shared domain schemas (zod): project status machine with validated transitions, upload states, running-order model + structural validation, roles/permissions, QC output shapes, languages, output presets |
+| `packages/database` | ✅ built | Prisma schema for all §27 entities with tenant fields, singleton client, dev seed (demo org, role users, §46 "Presenter update" template) |
+| `packages/i18n` | ✅ built | English and Welsh interface catalogs with typed lookup; tests enforce catalog parity |
+| `services/api` | ✅ built | NestJS backend: JWT auth, tenant isolation via membership resolution (`x-organisation-id`), RBAC guards, projects (status machine + running-order gate + audit trail), bilingual script versioning, workspaces, templates, brand-safe template versioning, device registration + heartbeat |
+| `apps/client-web` | ✅ built | Next.js app: sign-in, project dashboard, creation wizard (template/language/formats), project detail with running order, en/cy script editing and status actions; full en/cy interface toggle |
+| `services/*` (pipeline) | 📋 planned | READMEs describing media-ingest, transcription, audio-processing, composition, render-worker, quality-control, notifications, device-gateway (Phases 1–2) |
+| `apps/capture-agent` | 📋 planned | Tauri-based studio appliance (Phase 1) |
+| `apps/admin-web` | 📋 planned | Operations console (Phase 4) |
+| `infrastructure` | ✅ built | docker-compose for local Postgres, Redis and MinIO |
+
+## Getting started
+
+```bash
+pnpm install
+docker compose -f infrastructure/docker-compose.yml up -d postgres
+
+# Database
+export DATABASE_URL=postgresql://virtualstudio:virtualstudio@localhost:5432/virtualstudio
+pnpm --filter @virtual-studio/database generate
+pnpm --filter @virtual-studio/database exec prisma db push
+pnpm --filter @virtual-studio/database seed   # demo users, password: demo-password
+
+# Run
+pnpm build
+pnpm dev:api   # API on :4000
+pnpm dev:web   # web app on :3000
+
+# Verify
+pnpm test
+```
+
+Seeded demo accounts: `admin@`, `creator@`, `reviewer@`, `presenter@` `demo.example` (password `demo-password`), demonstrating the §4 role model.

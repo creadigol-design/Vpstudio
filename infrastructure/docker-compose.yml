@@ -1,0 +1,35 @@
+# Local development infrastructure (spec §7.3, §7.4, §7.6).
+# Usage: docker compose -f infrastructure/docker-compose.yml up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: virtualstudio
+      POSTGRES_PASSWORD: virtualstudio
+      POSTGRES_DB: virtualstudio
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  # S3-compatible object storage for media (spec §7.6)
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: virtualstudio
+      MINIO_ROOT_PASSWORD: virtualstudio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - miniodata:/data
+
+volumes:
+  pgdata:
+  miniodata:

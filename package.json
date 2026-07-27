@@ -1,0 +1,29 @@
+{
+  "name": "virtual-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Self-service virtual studio platform — multi-tenant SaaS with managed studio hardware",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "prisma",
+      "esbuild",
+      "sharp",
+      "@tailwindcss/oxide",
+      "unrs-resolver"
+    ]
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "lint": "pnpm -r --if-present lint",
+    "dev:api": "pnpm --filter @virtual-studio/api dev",
+    "dev:web": "pnpm --filter @virtual-studio/client-web dev"
+  }
+}
