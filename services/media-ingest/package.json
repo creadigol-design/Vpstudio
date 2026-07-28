@@ -1,0 +1,23 @@
+{
+  "name": "@virtual-studio/media-ingest",
+  "version": "0.1.0",
+  "description": "Ingestion worker: validates uploaded media with ffprobe and records technical metadata",
+  "main": "./dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js"
+  },
+  "dependencies": {
+    "@virtual-studio/database": "workspace:*",
+    "@virtual-studio/media-utils": "workspace:*",
+    "@virtual-studio/queues": "workspace:*",
+    "@virtual-studio/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

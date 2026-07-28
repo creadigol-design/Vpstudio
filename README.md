@@ -65,9 +65,14 @@ The monorepo follows the layout defined in [section 47 of the specification](doc
 | `packages/contracts` | ✅ built | Shared domain schemas (zod): project status machine with validated transitions, upload states, running-order model + structural validation, roles/permissions, QC output shapes, languages, output presets |
 | `packages/database` | ✅ built | Prisma schema for all §27 entities with tenant fields, singleton client, dev seed (demo org, role users, §46 "Presenter update" template) |
 | `packages/i18n` | ✅ built | English and Welsh interface catalogs with typed lookup; tests enforce catalog parity |
-| `services/api` | ✅ built | NestJS backend: JWT auth, tenant isolation via membership resolution (`x-organisation-id`), RBAC guards, projects (status machine + running-order gate + audit trail), bilingual script versioning, workspaces, templates, brand-safe template versioning, device registration + heartbeat |
+| `packages/storage` | ✅ built | S3/MinIO client, presigned multipart helpers, tenant-scoped storage-key layout per media category |
+| `packages/queues` | ✅ built | BullMQ queue names, typed job payloads, Redis connection helpers |
+| `packages/media-utils` | ✅ built | `ffprobe` inspection and `ffmpeg` execution wrappers (tested against synthesized media) |
+| `services/api` | ✅ built | NestJS backend: JWT auth, tenant isolation via membership resolution (`x-organisation-id`), RBAC guards, projects (status machine + running-order gate + audit trail), bilingual script versioning, workspaces, templates, brand-safe template versioning, device registration + heartbeat, resumable multipart uploads, recording sessions/takes, project versions + render queueing |
 | `apps/client-web` | ✅ built | Next.js app: sign-in, project dashboard, creation wizard (template/language/formats), project detail with running order, en/cy script editing and status actions; full en/cy interface toggle |
-| `services/*` (pipeline) | 📋 planned | READMEs describing media-ingest, transcription, audio-processing, composition, render-worker, quality-control, notifications, device-gateway (Phases 1–2) |
+| `services/media-ingest` | ✅ built | Ingestion worker: ffprobe validation via signed URLs, technical metadata, upload-session completion |
+| `services/render-worker` | ✅ built | Draft render worker: title cards, take assembly, landscape + vertical outputs, evidence-based QC rows |
+| `services/*` (rest of pipeline) | 📋 planned | READMEs describing transcription, audio-processing, composition, quality-control, notifications, device-gateway |
 | `apps/capture-agent` | 📋 planned | Tauri-based studio appliance (Phase 1) |
 | `apps/admin-web` | 📋 planned | Operations console (Phase 4) |
 | `infrastructure` | ✅ built | docker-compose for local Postgres, Redis and MinIO |
