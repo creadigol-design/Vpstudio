@@ -97,9 +97,14 @@ export default function ProjectDetailPage() {
     <AppShell>
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-xl font-semibold">{project.name}</h1>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm">
-          {t(`project.status.${project.status}` as MessageKey)}
-        </span>
+        <div className="flex items-center gap-3">
+          <a href={`/projects/${project.id}/review`} className="text-sm text-blue-700 underline">
+            {t("record.review")}
+          </a>
+          <span className="rounded-full bg-slate-100 px-3 py-1 text-sm">
+            {t(`project.status.${project.status}` as MessageKey)}
+          </span>
+        </div>
       </div>
 
       {notice && (

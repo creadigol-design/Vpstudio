@@ -7,6 +7,7 @@ import { DevicesModule } from "./devices/devices.module";
 import { UploadsModule } from "./uploads/uploads.module";
 import { RecordingModule } from "./recording/recording.module";
 import { RendersModule } from "./renders/renders.module";
+import { ReviewsModule } from "./reviews/reviews.module";
 import { PrismaService } from "./prisma.service";
 
 @Module({
@@ -19,6 +20,7 @@ import { PrismaService } from "./prisma.service";
     UploadsModule,
     RecordingModule,
     RendersModule,
+    ReviewsModule,
   ],
   providers: [PrismaService],
 })
