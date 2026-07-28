@@ -29,6 +29,21 @@ export class OrganisationsService {
     });
   }
 
+  /** Members with their roles — used to pick reviewers and approvers. */
+  async listMembers(tenant: TenantContext) {
+    const memberships = await this.prisma.membership.findMany({
+      where: { organisationId: tenant.organisationId },
+      include: { user: { select: { id: true, displayName: true, email: true } } },
+      orderBy: { user: { displayName: "asc" } },
+    });
+    return memberships.map((m) => ({
+      userId: m.userId,
+      displayName: m.user.displayName,
+      email: m.user.email,
+      role: m.role,
+    }));
+  }
+
   createWorkspace(tenant: TenantContext, dto: CreateWorkspaceDto) {
     return this.prisma.workspace.create({
       data: { organisationId: tenant.organisationId, name: dto.name },

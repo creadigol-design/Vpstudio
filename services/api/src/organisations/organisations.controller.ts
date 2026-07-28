@@ -25,6 +25,12 @@ export class OrganisationsController {
     return this.organisations.listWorkspaces(tenant);
   }
 
+  @Get("current/members")
+  @RequirePermission("project:read")
+  listMembers(@Tenant() tenant: TenantContext) {
+    return this.organisations.listMembers(tenant);
+  }
+
   @Post("current/workspaces")
   @RequirePermission("workspace:manage")
   createWorkspace(

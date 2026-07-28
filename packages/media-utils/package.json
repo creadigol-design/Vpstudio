@@ -1,0 +1,17 @@
+{
+  "name": "@virtual-studio/media-utils",
+  "version": "0.1.0",
+  "description": "ffprobe/ffmpeg wrappers for media inspection and processing",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.0"
+  }
+}
