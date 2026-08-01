@@ -55,6 +55,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 >
 > That's our job. We're a virtual production studio just along the coast in Gwynedd. We can shoot a lot of high-quality content in a day — swapping sets and scenes on the fly, with barely any post — which makes an "always-on" habit genuinely affordable.
 >
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery, just up the coast from us: https://vedri.studio/case-studies/aber-falls-distillery/
+>
 > Worth a short call? I'd happily bring a few ideas for filming the range.
 >
 > Daniel Evans
@@ -73,6 +75,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 > Here's the pattern we see: when organic doesn't carry its weight, brands lean on paid to fill the gap — and with everyone bidding for the same feeds, each customer only costs more. The ones who get ahead build a proper following first: warm, entertained, ready to buy before an ad's ever served. That needs a steady stream of good video, which is usually the sticking point — it's slow and expensive to make.
 >
 > That's exactly what we've built, and we're right on your doorstep — a virtual production studio in Gwynedd. We can turn out a day's worth of high-quality content in one session, swap backgrounds and setups on the fly, with next to no post. It makes "always-on" affordable instead of aspirational.
+>
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery, just up the coast: https://vedri.studio/case-studies/aber-falls-distillery/
 >
 > Fancy a quick chat? Happy to come to you with a few ideas.
 >
@@ -93,6 +97,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 >
 > We fix that bit. We're a virtual production studio in Gwynedd, about an hour from you. We can shoot a month of content in a day — swapping sets and scenes on the fly, minimal post — which makes an always-on strategy actually affordable.
 >
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery, just up the coast from us: https://vedri.studio/case-studies/aber-falls-distillery/
+>
 > Worth twenty minutes? I'll bring ideas built around the dogs.
 >
 > Daniel Evans
@@ -111,6 +117,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 > What we see again and again: when the organic side stays quiet, the growth gets bought — and with every brand bidding for the same feeds, each new customer costs a little more than the last. The brands pulling ahead build an audience that's warm and entertained before a single ad runs. The thing standing in the way is almost always production: good video, made often, is slow and expensive.
 >
 > That's what we're for. We're a virtual production studio in Gwynedd, an hour up the road. We can produce a lot of high-quality content in one shoot day — swapping sets and scenes as we go, with barely any post — so an always-on approach stops being a budget problem.
+>
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for a fellow Welsh producer, Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
 >
 > Could I grab twenty minutes? I'll come with a few concrete ideas.
 >
@@ -131,6 +139,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 >
 > That's our whole thing. We're a virtual production studio in North Wales — we can shoot a lot of high-quality content in a single day, swap sets and scenes on the fly, with minimal post. It turns "always-on" from a nice idea into something you can actually sustain.
 >
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
+>
 > Worth a short call? I'll bring a few ideas built around the cans.
 >
 > Daniel Evans
@@ -149,6 +159,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 > Here's why it's worth fixing: when organic reach stays small, the growth ends up getting bought — and with everyone bidding for the same feeds, that only gets pricier. The brands that break through build a following that's warm and wanting it before anything's for sale. The catch is always production: content this good-looking is slow and costly to make at any volume.
 >
 > That's what we do. We're a virtual production studio in Gwynedd, over the border from you — we can produce a lot of high-quality video in a single day, swapping sets and scenes on the fly, with barely any post. It makes an always-on habit affordable.
+>
+> You'll get the idea from our reel — https://youtu.be/44s-v0W9qSY — and this is a recent project we shot for Aber Falls Distillery, a fellow producer just up the road: https://vedri.studio/case-studies/aber-falls-distillery/
 >
 > Worth a quick chat? Your product is genuinely a joy to film — I've ideas already.
 >
@@ -169,6 +181,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 >
 > That's what we're built for. We're a virtual production studio in North Wales — we can shoot a lot of high-quality content in a day, swapping sets and scenes on the fly, with minimal post. It's how you build hype affordably in the years before a launch.
 >
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
+>
 > Worth twenty minutes? I've a few ideas for telling the mycelium story on camera.
 >
 > Daniel Evans
@@ -187,6 +201,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 > The reason it's worth solving: when organic stays small, growth gets bought instead — and with every brand bidding for the same feeds, each sale costs a little more. The ones that break through build a following that's warm and entertained before an ad ever runs. The usual blocker is production — telling a story like yours on video, consistently, is slow and expensive.
 >
 > That's exactly what we do. We're a virtual production studio in North Wales — we can produce a lot of high-quality content in a single day, swapping sets and scenes on the fly, with barely any post. It makes an always-on content strategy genuinely affordable.
+>
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
 >
 > Worth a short call? Your materials story is made for film — happy to share ideas.
 >
@@ -207,6 +223,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 >
 > That's our job. We're a virtual production studio in North Wales — we can shoot a lot of high-quality content in a single day, swap sets and scenes on the fly, with minimal post. It makes an always-on approach affordable.
 >
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
+>
 > Worth twenty minutes? The waste-to-product process is begging to be filmed — I've ideas.
 >
 > Daniel Evans
@@ -225,6 +243,8 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 > The knock-on is the bit that matters: when organic reach is thin, the growth leans on paid — and with every brand bidding for the same feeds, acquisition just keeps climbing. The brands pulling ahead build a following that's warm and entertained before an ad's ever served. The reason most don't is production — making enough good short-form video is slow and expensive.
 >
 > That's what we solve. We're a virtual production studio in North Wales — we can shoot a lot of high-quality content in a single day, swapping sets and scenes on the fly, with minimal post. It makes feeding a channel like TikTok, always-on, actually affordable.
+>
+> For a feel of how we work, here's our reel — https://youtu.be/44s-v0W9qSY — and a recent project we shot for Aber Falls Distillery: https://vedri.studio/case-studies/aber-falls-distillery/
 >
 > Worth a short call? I'll bring a few ideas for the ACTIPH short-form engine.
 >
