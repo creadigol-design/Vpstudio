@@ -57,14 +57,14 @@ rows = [
      "~16k IG; premium, cinematic product with almost no organic video",
      "Double double-gold SFWSC; 'World's Best 50 Gins'; Harvey Nichols", "theforestdistillery.com",
      "@forest_distillery", "~16k", "Karl & Lindsay Bond",
-     "LinkedIn / site contact form", "", "The most beautiful bottle in Britain, hiding at 16k",
-     "Yes – add recipient", "Not sent", "Most visually stunning product on the list"],
+     "team@theforestdistillery.com", "team@theforestdistillery.com", "The most beautiful bottle in Britain, hiding at 16k",
+     "YES – ready to send", "Not sent", "Verified email; most visually stunning product on the list"],
     [7, "Adamo Foods", "Foodtech — mycelium steak", "London", "National",
      "~995 IG followers / ~19 posts; near-absent owned audience",
      "~£2m seed + €10m EU Horizon grant; consumer launch ~2027 (build-hype angle)", "adamofoods.com",
      "@adamo.foods", "~995", "Pierre Dupuis (CEO)",
-     "LinkedIn; UNVERIFIED contact@/marketing@adamofoods.com", "", "€10m raised, 995 followers — that gap is the opportunity",
-     "Yes – add recipient", "Not sent", "Highest-contrast story; verify email first"],
+     "contact@adamofoods.com", "contact@adamofoods.com", "€10m raised, 995 followers — that gap is the opportunity",
+     "YES – ready to send", "Not sent", "Verified email; highest-contrast story"],
     [8, "PURIFIED", "Footwear", "London", "National",
      "~3.4k IG; world-first plastic-free shoe + royal exposure, static feed",
      "Prince William wore them at Earthshot 2024; raising investment", "purified.eco",
@@ -75,14 +75,14 @@ rows = [
      "~6.4k IG; styled static photography, no video engine",
      "Holly Branson + Conduit EIS backing; ~$550k angel (2025); John Lewis", "reborn.homes",
      "@reborn_homes", "~6.4k", "Brian Walmsley (CEO)",
-     "LinkedIn (in/brianwalmsley) / site form", "", "Waste into homeware — that's a film, not a photo",
-     "Yes – add recipient", "Not sent", "Waste-to-product = ready-made video"],
+     "support@reborn.homes", "support@reborn.homes", "Waste into homeware — that's a film, not a photo",
+     "YES – ready to send", "Not sent", "Verified email; waste-to-product = ready-made video"],
     [10, "ACTIPH Water", "Drink — water", "London", "National",
      "IG ~26k but TikTok ~1,750 — dormant on the key beverage channel",
      "~£10m+ raised; Tesco/Sainsbury's/Ocado/H&B/BP; exports ~20 countries", "actiphwater.com",
      "@actiphwater", "TikTok ~1,750", "Barnaby Hughes (CMO) / Jamie Douglas-Hamilton",
-     "Barnaby: likely firstname@actiphwater.com (verify)", "", "Your TikTok's asleep — and it's costing you",
-     "Yes – add recipient", "Not sent", ""],
+     "hello@actiphwater.com", "hello@actiphwater.com", "Your TikTok's asleep — and it's costing you",
+     "YES – ready to send", "Not sent", "Verified email (general inbox)"],
 ]
 
 # ---- title ----
@@ -97,8 +97,8 @@ ws.row_dimensions[1].height = 30
 # ---- legend ----
 ws.merge_cells("A2:Q2")
 c = ws["A2"]
-c.value = ("Legend:  Green rows = verified email, send-ready.  "
-           "All other drafts are saved in Gmail with your own address as a placeholder — replace the To before sending.  "
+c.value = ("Legend:  All 10 drafts are saved in Gmail with confirmed recipients — send-ready.  "
+           "Send FROM info@vedri.studio: add it as a verified 'Send mail as' alias, then pick it as the From address before sending.  "
            "Follower counts are search-surfaced (Aug 2026) — confirm on the live feed before quoting in line one.  "
            "Fill in the 'Reply status' and 'Notes' columns as you work through.")
 c.font = Font(name="Arial", size=9, italic=True, color="444444")
@@ -117,7 +117,7 @@ for j, h in enumerate(headers, start=1):
 ws.row_dimensions[hrow].height = 28
 
 # ---- data rows ----
-verified_ranks = {1, 2, 3, 4, 5, 8}
+verified_ranks = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 for i, row in enumerate(rows):
     r = hrow + 1 + i
     fill_color = lightgreen if row[0] in verified_ranks else (white if i % 2 == 0 else grey)

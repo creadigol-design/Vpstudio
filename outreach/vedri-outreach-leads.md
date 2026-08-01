@@ -2,7 +2,7 @@
 
 **Prepared:** 1 August 2026
 **For:** vedrí Virtual Production Studio (DocShed, Gwynedd, North Wales)
-**Sending account:** info@creadigol.design
+**Send from:** info@vedri.studio (add as a verified "Send mail as" alias in the sending Gmail account, then select it as the From address before sending). Drafts currently sit in the info@creadigol.design mailbox.
 
 ## The thesis (from the brief)
 
@@ -16,7 +16,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 
 ## Honesty flags (read before sending)
 
-1. **Verified emails are scarce.** Only Hip Pop and PURIFIED are confirmed. Everything else routes via the named founder on LinkedIn or a website contact form. The Adamo address was surfaced online but is **unverified** — check it first.
+1. **All 10 drafts now have recipient addresses** (client-supplied). Draft the send **from info@vedri.studio** — set up the send-as alias first (see above).
 2. **Follower counts are search-surfaced** and roughly current (Aug 2026). Glance at each feed to confirm the figure quoted in line one before sending — a wrong number undoes the email.
 3. **Signature** is set to *Daniel Evans · vedrí* — swap the name if someone else sends.
 
@@ -31,11 +31,11 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 | 3 | Different Dog | Pet (fresh dog food) | Shrewsbury, Shropshire | Welsh border | ✅ feedme@differentdog.com |
 | 4 | Hilltop Honey | Food (honey) | Newtown, Powys | Mid Wales | ✅ info@lovehilltop.com |
 | 5 | Hip Pop | Drink (gut soda) | Altrincham, Gtr Manchester | North West | ✅ hello@drinkhippop.com |
-| 6 | The Forest Distillery (Forest Gin) | Drink (spirits) | Macclesfield, Cheshire | North West | Needs recipient |
-| 7 | Adamo Foods | Foodtech (mycelium steak) | London | National | Needs recipient (unverified addr found) |
+| 6 | The Forest Distillery (Forest Gin) | Drink (spirits) | Macclesfield, Cheshire | North West | ✅ team@theforestdistillery.com |
+| 7 | Adamo Foods | Foodtech (mycelium steak) | London | National | ✅ contact@adamofoods.com |
 | 8 | PURIFIED | Footwear | London | National | ✅ enquiries@purified.eco |
-| 9 | ReBorn Homewares | Homeware | Wiltshire | National | Needs recipient |
-| 10 | ACTIPH Water | Drink (water) | London | National | Needs recipient |
+| 9 | ReBorn Homewares | Homeware | Wiltshire | National | ✅ support@reborn.homes |
+| 10 | ACTIPH Water | Drink (water) | London | National | ✅ hello@actiphwater.com |
 
 ---
 
@@ -139,7 +139,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 6. The Forest Distillery (Forest Gin) — Macclesfield, Cheshire
 - **Why exciting:** World-class small-batch gin/whisky in hand-printed stoneware bottles — the most visually stunning product on this list; double double-gold at San Francisco World Spirits; Harvey Nichols; "World's Best 50 Gins." Cheshire Peak District.
 - **The gap:** Instagram @forest_distillery ~16k followers — tiny for a product this premium and cinematic, with almost no organic video presence.
-- **Contact:** Karl & Lindsay Bond — via LinkedIn, or theforestdistillery.com contact form.
+- **Contact:** ✅ **team@theforestdistillery.com** (Karl & Lindsay Bond).
 - **Subject:** The most beautiful bottle in Britain, hiding at 16k
 
 > Hi Karl and Lindsay,
@@ -158,7 +158,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 7. Adamo Foods — London
 - **Why exciting:** Foodtech building Europe's first ultra-realistic whole-cut steak from mycelium; ~£2m seed plus a €10m EU Horizon Europe grant; press-heavy. Consumer product ~2027, so this is a build-hype-before-launch play.
 - **The gap:** Instagram @adamo.foods ~995 followers / ~19 posts — a near-absent owned audience for a heavily-funded, media-covered brand. Highest-contrast story on the list.
-- **Contact:** Founder/CEO Pierre Dupuis — via LinkedIn. Unverified addresses surfaced online: contact@adamofoods.com / marketing@adamofoods.com (verify first).
+- **Contact:** ✅ **contact@adamofoods.com** (Founder/CEO Pierre Dupuis).
 - **Subject:** €10m raised, 995 followers — that gap is the opportunity
 
 > Hi Pierre,
@@ -196,7 +196,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 9. ReBorn Homewares — Wiltshire
 - **Why exciting:** UK homeware made entirely from recycled food-packaging plastic (partnership with Biffa); backed by Holly Branson + The Conduit EIS Fund; ~$550k angel round (2025); stocked in John Lewis. Waste-to-product transformation is ready-made video.
 - **The gap:** Instagram @reborn_homes ~6.4k followers — tiny for a nationally-stocked, Branson-backed brand; styled static photography rather than a video engine.
-- **Contact:** Founder/CEO Brian Walmsley — LinkedIn (linkedin.com/in/brianwalmsley), or reborn.homes contact form.
+- **Contact:** ✅ **support@reborn.homes** (Founder/CEO Brian Walmsley).
 - **Subject:** Waste into homeware — that's a film, not a photo
 
 > Hi Brian,
@@ -215,10 +215,10 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 10. ACTIPH Water — London
 - **Why exciting:** UK's first alkaline ionised water; ~£10m+ raised; Tesco, Sainsbury's, Ocado, Holland & Barrett, BP; exports to ~20 countries. Founder Jamie Douglas-Hamilton (Guinness-record rower).
 - **The gap:** Instagram ~26k but TikTok @actiphwater only ~1,750 followers — essentially dormant on the platform where beverage brands now build reach.
-- **Contact:** CMO Barnaby Hughes (likely firstname@actiphwater.com — verify) or founder Jamie Douglas-Hamilton on LinkedIn.
+- **Contact:** ✅ **hello@actiphwater.com** (general; CMO Barnaby Hughes / founder Jamie Douglas-Hamilton on LinkedIn).
 - **Subject:** Your TikTok's asleep — and it's costing you
 
-> Hi Barnaby,
+> Hi there,
 >
 > ACTIPH is in every major multiple and shifting serious volume — so it's striking that the TikTok is sitting at under 2,000 followers while the brand's doing everything else at national scale. That's the one channel where beverage brands are building real reach right now, and it's effectively dormant.
 >
