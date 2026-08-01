@@ -26,10 +26,10 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 
 | # | Brand | Category | Location | Region | Email status |
 |---|-------|----------|----------|--------|--------------|
-| 1 | Snowdonia Cheese Company | Food (cheese) | Rhyl, Denbighshire | North Wales ⭐ | Needs recipient |
-| 2 | Wild Horse Brewing Co | Drink (craft beer) | Llandudno, Conwy | North Wales ⭐ | Needs recipient |
-| 3 | Different Dog | Pet (fresh dog food) | Shrewsbury, Shropshire | Welsh border | Needs recipient |
-| 4 | Hilltop Honey | Food (honey) | Newtown, Powys | Mid Wales | Needs recipient |
+| 1 | Snowdonia Cheese Company | Food (cheese) | Rhyl, Denbighshire | North Wales ⭐ | ✅ info@snowdonia-cheese.co.uk |
+| 2 | Wild Horse Brewing Co | Drink (craft beer) | Llandudno, Conwy | North Wales ⭐ | ✅ sales@wildhorsebrewing.co.uk |
+| 3 | Different Dog | Pet (fresh dog food) | Shrewsbury, Shropshire | Welsh border | ✅ feedme@differentdog.com |
+| 4 | Hilltop Honey | Food (honey) | Newtown, Powys | Mid Wales | ✅ info@lovehilltop.com |
 | 5 | Hip Pop | Drink (gut soda) | Altrincham, Gtr Manchester | North West | ✅ hello@drinkhippop.com |
 | 6 | The Forest Distillery (Forest Gin) | Drink (spirits) | Macclesfield, Cheshire | North West | Needs recipient |
 | 7 | Adamo Foods | Foodtech (mycelium steak) | London | National | Needs recipient (unverified addr found) |
@@ -44,7 +44,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 1. Snowdonia Cheese Company — Rhyl, North Wales ⭐
 - **Why exciting:** Maker of "Black Bomber," the iconic black-wax cheddar; exports to 25+ countries; Queen's Award for Enterprise (International Trade); ~113 awards in a decade.
 - **The gap:** Instagram @snowdoniacheese ~34k followers, product-shot heavy. A distinctive, camera-ready product barely used in video.
-- **Contact:** Brothers John & Richard Newton-Jones — via LinkedIn, or snowdoniacheese.co.uk contact form.
+- **Contact:** ✅ **info@snowdonia-cheese.co.uk** (John & Richard Newton-Jones).
 - **Subject:** Black Bomber deserves more than a product shot
 
 > Hi John and Richard,
@@ -63,7 +63,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 2. Wild Horse Brewing Co — Llandudno, North Wales ⭐
 - **Why exciting:** Craft brewery with bold, design-led can artwork; doubled brewing capacity (175k→350k litres); opening a permanent taproom. Backed by Development Bank of Wales / Welsh Government funding. Literally on vedrí's doorstep — warmest travel pitch.
 - **The gap:** Instagram @wildhorsebeer ~7.5k followers / ~1,287 posts. Posting a lot for little return; design-forward cans are ideal short-form fodder that isn't being used.
-- **Contact:** Dave & Emma Faragher — via LinkedIn, or wildhorsebrewing.co.uk contact form.
+- **Contact:** ✅ **sales@wildhorsebrewing.co.uk** (Dave & Emma Faragher).
 - **Subject:** Those cans are wasted as thumbnails
 
 > Hi Dave and Emma,
@@ -82,7 +82,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 3. Different Dog — Shrewsbury, Shropshire
 - **Why exciting:** Fresh, hand-cooked, human-grade dog food subscription; B-Corp; raised ~£10m (April 2025) with the raise earmarked for marketing; feeds 18,000+ dogs a month; new Telford facility. ~1 hour from North Wales.
 - **The gap:** Instagram @differentdog ~43k followers, active but leaning on product/testimonial content rather than entertaining short-form. Modest for the funding/scale. Product (dogs + food prep) is about as filmable as it gets.
-- **Contact:** Charlie & Alex Thurstan — via LinkedIn, or differentdog.com contact form.
+- **Contact:** ✅ **feedme@differentdog.com** (Charlie & Alex Thurstan).
 - **Subject:** £10m in, and the dogs aren't on camera enough
 
 > Hi Charlie and Alex,
@@ -101,7 +101,7 @@ Weighted to favour **Wales / North West / Midlands** (travel-warm to DocShed). T
 ### 4. Hilltop Honey — Newtown, Powys
 - **Why exciting:** Premium/traceable honey, B-Corp, one of the UK's largest producers; £10m Santander financing (2024) for global expansion; sales £20m→£33m, targeting £50m; Tesco, Sainsbury's, Co-op, Ocado. Welsh.
 - **The gap:** Instagram @hilltop_honey ~39k followers / ~1,524 posts — low for the commercial scale, and jar/product-photography heavy.
-- **Contact:** Founder/CEO Scott Davies — via LinkedIn, or hilltophoney.co.uk contact form.
+- **Contact:** ✅ **info@lovehilltop.com** (Founder/CEO Scott Davies).
 - **Subject:** £33m in sales, 39k followers — the maths is off
 
 > Hi Scott,

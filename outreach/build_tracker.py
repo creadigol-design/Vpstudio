@@ -27,26 +27,26 @@ rows = [
      "~34k IG, product-shot heavy; iconic Black Bomber barely used in video",
      "Queen's Award (Int'l Trade); exports 25+ countries; ~113 awards", "snowdoniacheese.co.uk",
      "@snowdoniacheese", "~34k", "John & Richard Newton-Jones",
-     "LinkedIn / site contact form", "", "Black Bomber deserves more than a product shot",
-     "Yes – add recipient", "Not sent", ""],
+     "info@snowdonia-cheese.co.uk", "info@snowdonia-cheese.co.uk", "Black Bomber deserves more than a product shot",
+     "YES – ready to send", "Not sent", "Verified email – send-ready"],
     [2, "Wild Horse Brewing Co", "Drink — craft beer", "Llandudno, Conwy", "North Wales ⭐",
      "~7.5k IG / ~1,287 posts; lots of effort, little reach; design-led cans unused",
      "DBW/Welsh Gov funding; capacity doubled 175k→350k L; new taproom", "wildhorsebrewing.co.uk",
      "@wildhorsebeer", "~7.5k", "Dave & Emma Faragher",
-     "LinkedIn / site contact form", "", "Those cans are wasted as thumbnails",
-     "Yes – add recipient", "Not sent", "Warmest travel pitch – on the doorstep"],
+     "sales@wildhorsebrewing.co.uk", "sales@wildhorsebrewing.co.uk", "Those cans are wasted as thumbnails",
+     "YES – ready to send", "Not sent", "Verified email; warmest travel pitch – on the doorstep"],
     [3, "Different Dog", "Pet — fresh dog food", "Shrewsbury, Shropshire", "Welsh border",
      "~43k IG, active but product/testimonial-led; light for the funding",
      "~£10m raised (2025), earmarked for marketing; 18,000+ dogs/mo; B-Corp", "differentdog.com",
      "@differentdog", "~43k", "Charlie & Alex Thurstan",
-     "LinkedIn / site contact form", "", "£10m in, and the dogs aren't on camera enough",
-     "Yes – add recipient", "Not sent", "~1 hr from DocShed"],
+     "feedme@differentdog.com", "feedme@differentdog.com", "£10m in, and the dogs aren't on camera enough",
+     "YES – ready to send", "Not sent", "Verified email; ~1 hr from DocShed"],
     [4, "Hilltop Honey", "Food — honey", "Newtown, Powys", "Mid Wales",
      "~39k IG / ~1,524 posts; jar photography heavy; lags commercial scale",
      "£10m Santander (2024); sales £20m→£33m, target £50m; B-Corp; major multiples", "hilltophoney.co.uk",
      "@hilltop_honey", "~39k", "Scott Davies (CEO)",
-     "LinkedIn / site contact form", "", "£33m in sales, 39k followers — the maths is off",
-     "Yes – add recipient", "Not sent", ""],
+     "info@lovehilltop.com", "info@lovehilltop.com", "£33m in sales, 39k followers — the maths is off",
+     "YES – ready to send", "Not sent", "Verified email"],
     [5, "Hip Pop", "Drink — gut soda", "Altrincham, Gtr Manchester", "North West",
      "~29k IG; invests in content but underweight vs US peers (millions)",
      "~£7m raised (LadBible founders, ex-Olipop CFO); Waitrose & Booths", "drinkhippop.com",
@@ -117,7 +117,7 @@ for j, h in enumerate(headers, start=1):
 ws.row_dimensions[hrow].height = 28
 
 # ---- data rows ----
-verified_ranks = {5, 8}
+verified_ranks = {1, 2, 3, 4, 5, 8}
 for i, row in enumerate(rows):
     r = hrow + 1 + i
     fill_color = lightgreen if row[0] in verified_ranks else (white if i % 2 == 0 else grey)
